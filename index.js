@@ -1,10 +1,13 @@
-const youtubeSearch = "AIzaSyC9xc2W_AWe_0k54KE6PYIR4JDQMH5QY1s";
+const youtubeSearch_URL = "https://www.googleapis.com/youtube/v3/search";
 
 function getDataFromApi(searchTerm, callback) {
 	const query = {
-		q: `${searchTerm} in:name`,
+		part:'snippet',
+		key: AIzaSyC9xc2W_AWe_0k54KE6PYIR4JDQMH5QY1s,
+		q: `${searchTerm}`,
 		per_page: 5
 	}
+	$.getJSON(youtubeSearch_URL, query, callback);
 }
 
 // function displayResults//
