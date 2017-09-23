@@ -1,8 +1,7 @@
 const youtubeSearch_URL = "https://www.googleapis.com/youtube/v3/search";
 
 function getDataFromApi(searchTerm, callback) {
-	const searchTerm = $(`.js-query`);
-	const query = {
+	let query = {
 		part:'snippet',
 		key: "AIzaSyC9xc2W_AWe_0k54KE6PYIR4JDQMH5QY1s",
 		q: `${searchTerm}`,
@@ -12,7 +11,7 @@ function getDataFromApi(searchTerm, callback) {
 	//need to create variables for searchTerm and callback?
 }
 
-// function displayResults//
+// function from example...is it needed here?//
 function renderResult(result) {
 	return `
 	<div>
