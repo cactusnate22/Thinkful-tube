@@ -4,6 +4,7 @@ function getDataFromApi(searchTerm, callback) {
 	let query = {
 		part:'snippet',
 		key: "AIzaSyC9xc2W_AWe_0k54KE6PYIR4JDQMH5QY1s",
+		type: 'video',
 		q: `${searchTerm}`,
 		per_page: 5
 	}
@@ -13,18 +14,40 @@ function getDataFromApi(searchTerm, callback) {
 
 // function from example...is it needed here?//
 function renderResult(result) {
+	var url = 'https://youtube.com/watch?v=' + result.id.videoId
 	return `
 	<div>
 	   <h2>
-	     <a class="js-result-name" href="${result.html_url}" target="_blank">${result.name}</a>
+	     <a class="js-result-name" href="${url}" target="_blank">
+	     	<img class="js-result-name" src="${result.snippet.thumbnails.medium.url}">
+	     	<br>
+	     	${result.snippet.title}
+	     </a>
 	   </h2>
 	</div>
   `;
 }
 
+
+function renderVideo(videoInfo) {
+	console.log('videoInfo:', videoInfo)
+
+	var url = 'https://youtube.com/watch?v=' + videoInfo.id.videoId;
+	var title = videoInfo.snippet.title;
+	var thumbnail = videoInfo.snippet.thumbnails.medium.url;
+	return `
+		<div>
+		<a href="${url}"><img src="${thumbnail}">
+		</a>
+		<h3>${title}
+		</h3>
+		</div>
+	`;
+}
+
 //function to display search data returned
 function displayYouTubeSearchData(data) {
-	const results = data.items.map((item, index)=> renderResult(item));
+	const results = data.items.map((item, index)=> renderVideo(item));
 	$('.js-search-results').html(results);
 	//console.log(displayYouTubeSearchData(data));
 
