@@ -12,29 +12,28 @@ function getDataFromApi(searchTerm, callback) {
 	//need to create variables for searchTerm and callback?
 }
 
-// function from example...is it needed here?//
-function renderResult(result) {
-	var url = 'https://youtube.com/watch?v=' + result.id.videoId
-	return `
-	<div>
-	   <h2>
-	     <a class="js-result-name" href="${url}" target="_blank">
-	     	<img class="js-result-name" src="${result.snippet.thumbnails.medium.url}">
-	     	<br>
-	     	${result.snippet.title}
-	     </a>
-	   </h2>
-	</div>
-  `;
-}
+
+// function renderResult(result) {
+// 	var url = 'https://youtube.com/watch?v=' + result.id.videoId
+// 	return `
+// 	<div>
+// 	   <h2>
+// 	     <a class="js-result-name" href="${url}" target="_blank">
+// 	     	<img class="js-result-name" src="${result.snippet.thumbnails.medium.url}">
+// 	     	<br>
+// 	     	${result.snippet.title}
+// 	     </a>
+// 	   </h2>
+// 	</div>
+//   `;
+// }
 
 
 function renderVideo(videoInfo) {
-	console.log('videoInfo:', videoInfo)
-
 	var url = 'https://youtube.com/watch?v=' + videoInfo.id.videoId;
 	var title = videoInfo.snippet.title;
 	var thumbnail = videoInfo.snippet.thumbnails.medium.url;
+
 	return `
 		<div>
 		<a href="${url}"><img src="${thumbnail}">
