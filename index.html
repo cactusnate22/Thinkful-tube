@@ -15,13 +15,13 @@
    <header role='banner'>Nate's Thinkful Tube API Project</header>
 	<main>
 		<h1>Search for You Tube videos by keyword:</h1>
-		<form action='#' class='js-search-form'>
+		<form action='#' class='js-search-form' aria-label="search form">
 			<label for= "query"></label>
-			<input type="text" class="js-query" role="text input">
-			<button type="submit" role="submit">Search</button>		
+			<input type="text" class="js-query">
+			<button type="submit">Search</button>		
 		</form>
 		<h2>Results:</h2>
-		<div class="js-search-results">
+		<div class="js-search-results" role="none">
 		</div>
 	</main>
 	<script src="index.js"></script>
