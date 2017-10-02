@@ -6,3 +6,10 @@ header {
 	color: #CB4335;
 	text-align: center;
 }
+
+.hidden-el {
+    		display: block;
+    		width: 0;
+    		height: 0;
+    		text-indent: -10000px;
+    	}

@@ -33,10 +33,11 @@ function renderVideo(videoInfo) {
 	var url = 'https://youtube.com/watch?v=' + videoInfo.id.videoId;
 	var title = videoInfo.snippet.title;
 	var thumbnail = videoInfo.snippet.thumbnails.medium.url;
+	var description = videoInfo.snippet.description;
 
 	return `
 		<div>
-		<a href="${url}"><img src="${thumbnail}">
+		<a href="${url}"><img src="${thumbnail}" alt="YouTube video: ${description}">
 		</a>
 		<h3>${title}
 		</h3>
